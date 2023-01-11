@@ -6,7 +6,11 @@ const main = async () => {
     let persons;
 
     persons = await PersonsSchema.aggregate([
-        {}
+        { $match: {"company.location.country": "USA"}}
+    ]);
+
+    persons = await PersonsSchema.aggregate([
+        { $match: { $and: [{gender: "female"}, {age: {$gt: 25}}]}}
     ]);
     console.log(persons)
 }

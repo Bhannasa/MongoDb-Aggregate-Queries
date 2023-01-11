@@ -5,7 +5,7 @@ const connect = async () => {
     try{
         await mongoose.set('strictQuery', true);
         await mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log('connected')
+        // console.log('connected')
         // const persons = mongoose.model('persons', PersonsSchema);
         // console.log(await persons.findOne())
         // return persons;

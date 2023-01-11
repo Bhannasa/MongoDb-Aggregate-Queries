@@ -6,7 +6,12 @@ const main = async () => {
     let persons;
 
     persons = await PersonsSchema.aggregate([
-        {}
+        {$group: {_id: "$company.location.country"}}
+    ]);
+    // console.log(persons)
+    
+    persons = await PersonsSchema.aggregate([
+        {$group: {_id: "$name", total: {$sum: "$age"}}}
     ]);
     console.log(persons)
 }
